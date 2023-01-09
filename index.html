@@ -28,10 +28,12 @@
     </p>
 
     <h2>Graphing</h2>
-    <p>To graph an equation, enter the equation in the input box below and click the "Graph" button.</p>
+    <p>To graph an equation in the form y = mx + b, enter the values of m and b in the input boxes below and click the "Graph" button.</p>
     <form>
-      <label for="equation">Equation:</label><br>
-      <input type="text" id="equation" name="equation"><br>
+      <label for="m">m:</label><br>
+      <input type="text" id="m" name="m"><br>
+      <label for="b">b:</label><br>
+      <input type="text" id="b" name="b"><br>
       <button type="button" onclick="graphEquation()">Graph</button>
     </form> 
     <p>
@@ -64,13 +66,15 @@
         document.getElementById("solution").innerHTML = solution;
       }
       function graphEquation() {
-        // Get the equation from the input box
-        var equation = document.getElementById("equation").value;
+        // Get the values of m and b from the input boxes
+        var m = document.getElementById("m").value;
+        var b = document.getElementById("b").value;
+        // Construct the equation in the form y = mx + b
+        var equation = "y = " + m + "x + " + b;
         // Graph the equation
         var img = drawGraph(equation);
-// Display the graph
-document.getElementById("graph").src = img.src;
-Graph(equation, "graph");
+        // Display the graph
+        document.getElementById("graph").src = img.src;
       }
       function changeWebsite() {
         var select = document.getElementById("websites");
@@ -80,5 +84,3 @@ Graph(equation, "graph");
     </script>
   </body>
 </html>
-
-        
