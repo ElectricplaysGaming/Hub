@@ -23,7 +23,9 @@
       <input type="text" id="equation" name="equation"><br>
       <button type="button" onclick="solveEquation()">Solve</button>
     </form> 
-    <p id="solution"></p>
+    <p>
+      <strong>Solution:</strong> <span id="solution"></span>
+    </p>
 
     <h2>Graphing</h2>
     <p>To graph an equation, enter the equation in the input box below and click the "Graph" button.</p>
@@ -32,7 +34,10 @@
       <input type="text" id="equation" name="equation"><br>
       <button type="button" onclick="graphEquation()">Graph</button>
     </form> 
-    <div id="graph"></div>
+    <p>
+      <strong>Graph:</strong> <br>
+      <img id="graph">
+    </p>
 
     <br>
     <hr>
@@ -56,13 +61,16 @@
         // Solve the equation
         var solution = solve(equation);
         // Display the solution
-        document.getElementById("solution").innerHTML = "Solution: " + solution;
+        document.getElementById("solution").innerHTML = solution;
       }
       function graphEquation() {
         // Get the equation from the input box
         var equation = document.getElementById("equation").value;
         // Graph the equation
-        drawGraph(equation, "graph");
+        var img = drawGraph(equation);
+// Display the graph
+document.getElementById("graph").src = img.src;
+Graph(equation, "graph");
       }
       function changeWebsite() {
         var select = document.getElementById("websites");
@@ -70,5 +78,7 @@
         document.getElementById("website").src = website;
       }
     </script>
-  </body
+  </body>
 </html>
+
+        
