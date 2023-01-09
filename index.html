@@ -1,5 +1,6 @@
 <html>
   <head>
+    <title>Algebra 1 Helper</title>
     <style>
       body {
         background-color: #333333;
@@ -12,7 +13,31 @@
     </style>
   </head>
   <body>
-    <h1>Welcome to my website!</h1>
+    <h1>Algebra 1 Helper</h1>
+    <p>Welcome to the Algebra 1 Helper! This page is designed to help you with all your algebra 1 needs.</p>
+
+    <h2>Solving Equations</h2>
+    <p>To solve an equation, enter the equation in the input box below and click the "Solve" button.</p>
+    <form>
+      <label for="equation">Equation:</label><br>
+      <input type="text" id="equation" name="equation"><br>
+      <button type="button" onclick="solveEquation()">Solve</button>
+    </form> 
+    <p id="solution"></p>
+
+    <h2>Graphing</h2>
+    <p>To graph an equation, enter the equation in the input box below and click the "Graph" button.</p>
+    <form>
+      <label for="equation">Equation:</label><br>
+      <input type="text" id="equation" name="equation"><br>
+      <button type="button" onclick="graphEquation()">Graph</button>
+    </form> 
+    <div id="graph"></div>
+
+    <br>
+    <hr>
+    <br>
+
     <p>Please select a website from the drop-down menu:</p>
     <form>
       <select id="websites">
@@ -23,12 +48,27 @@
     </form>
     <br>
     <iframe id="website" src="https://www.example.com" width="800" height="600"></iframe>
+
     <script>
+      function solveEquation() {
+        // Get the equation from the input box
+        var equation = document.getElementById("equation").value;
+        // Solve the equation
+        var solution = solve(equation);
+        // Display the solution
+        document.getElementById("solution").innerHTML = "Solution: " + solution;
+      }
+      function graphEquation() {
+        // Get the equation from the input box
+        var equation = document.getElementById("equation").value;
+        // Graph the equation
+        drawGraph(equation, "graph");
+      }
       function changeWebsite() {
         var select = document.getElementById("websites");
         var website = select.options[select.selectedIndex].value;
         document.getElementById("website").src = website;
       }
     </script>
-  </body>
+  </body
 </html>
